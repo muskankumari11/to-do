@@ -51,15 +51,15 @@ const page = () => {
   }
 
   return (
-    <>
-      <h1 className='bg-black text-white p-5 text-5xl font-bold text-center'>
+    <div className='bg-green-100 min-h-screen'>
+      <h1 className='bg-black text-white p-5 text-3xl sm:text-5xl font-bold text-center'>
         My Todo List
       </h1>
 
-      <form onSubmit={submitHandler}>
+      <form onSubmit={submitHandler} className='flex flex-col sm:flex-row items-center'>
         <input
           type="text"
-          className='text-2xl border-zinc-800 border-2 m-8 px-4 py-2'
+          className='text-xl sm:text-2xl border-zinc-800 border-2 m-4 sm:m-8 px-4 py-2 w-[90%] sm:w-auto'
           placeholder='Enter Title here'
           value={title}
           onChange={(e) => {
@@ -69,7 +69,7 @@ const page = () => {
 
         <input
           type="text"
-          className='text-2xl border-zinc-800 border-2 m-8 px-4 py-2'
+          className='text-xl sm:text-2xl border-zinc-800 border-2 m-4 sm:m-8 px-4 py-2 w-[90%] sm:w-auto'
           placeholder='Enter Description here'
           value={desc}
           onChange={(e) => {
@@ -77,19 +77,19 @@ const page = () => {
           }}
         />
 
-        <button className='bg-black text-white px-4 py-3 text-2xl font-bold rounded m-5'>
+        <button className='bg-black text-white px-4 py-3 text-xl sm:text-2xl font-bold rounded m-4 sm:m-5'>
           Add Task
         </button>
       </form>
 
       <hr />
 
-      <div className='p-8 bg-slate-200'>
+      <div className='p-4 sm:p-8 bg-slate-200'>
         <ul>
           {renderTask}
         </ul>
       </div>
-    </>
+    </div>
   )
 }
 
