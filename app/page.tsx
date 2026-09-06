@@ -1,17 +1,16 @@
 
 "use client"
 
-import React from 'react'
-import { useState } from 'react'
+import React, { useState } from 'react'
 
 const page = () => {
   const [title, settitle] = useState("")
   const [desc, setdesc] = useState("")
 
   //maintask work
-  const [mainTask, setMainTask] = useState([])
+  const [mainTask, setMainTask] = useState<{ title: string; desc: string }[]>([])
 
-  const submitHandler = (e) => {
+  const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setMainTask([...mainTask, { title, desc }])
     settitle("")
@@ -19,14 +18,14 @@ const page = () => {
     console.log(mainTask)
   }
 
-  const deleteHandler = (i) => {
+  const deleteHandler = (i: number) => {
     let copytask = [...mainTask]
     copytask.splice(i, 1)
     setMainTask(copytask)
   }
 
   //maintask work
-  let renderTask = <h2>No Task available</h2>
+  let renderTask: React.ReactNode = <h2>No Task available</h2>
 
   //maintask work
   if (mainTask.length > 0) {
@@ -95,4 +94,3 @@ const page = () => {
 }
 
 export default page
-
